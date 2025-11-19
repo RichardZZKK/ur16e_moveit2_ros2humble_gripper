@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>my_ur16e_description</name>
+  <version>0.0.0</version>
+  <description>UR16e robot description (URDF/Xacro) for ROS 2.</description>
+  <maintainer email="you@example.com">Your Name</maintainer>
+  <license>ODO: License declaration</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>robot_state_publisher</depend>
+  <depend>joint_state_publisher_gui</depend>
+  <depend>rviz2</depend>
+  <depend>xacro</depend>
+  <depend>ur_description</depend>
+  <export/>
+</package>
