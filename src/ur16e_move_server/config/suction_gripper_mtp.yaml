@@ -1,0 +1,92 @@
+# Suction Gripper MTP Server 配置文件
+# 这个文件包含所有可配置的参数
+
+suction_gripper_mtp_server:
+  ros__parameters:
+    # ========== 基本配置 ==========
+    robot_prefix: "left"
+    planning_group: "left_arm"
+    end_effector_link: "left_suction_gripper_tcp"
+    
+    # ========== 运动参数 ==========
+    # Pick/place时的安全飞行高度 (米)
+    pick_place_height: 0.3
+    
+    # 执行感知时更接近物体的高度 (米)
+    look_height: 0.23
+    
+    # 在物体表面上方的clearance高度 (米)
+    object_clearance: 0.05
+    
+    # 笛卡尔路径规划的步长 (米)
+    eef_step: 0.005
+    
+    # 笛卡尔路径必须完成的最小比例
+    cartesian_min_fraction: 0.90
+    
+    # ========== 力/触觉控制参数 ==========
+    # FT传感器的力设定值 (牛顿)
+    # 当检测到这个力时停止下降运动
+    ft_setpoint: 64.0
+    
+    # 力控制的误差容忍范围 (牛顿)
+    ft_error_allowance: 1.0
+    
+    # 向下移动时的速度 (米/秒，负值表示向下)
+    velocity_z: -0.015
+    
+    # FT控制循环的频率 (赫兹)
+    ft_control_rate: 30.0
+    
+    # ========== 夹爪IO控制参数 ==========
+    # IO功能编号 (UR机器人特定)
+    gripper_io_fun: 1
+    
+    # IO引脚编号
+    gripper_io_pin: 12
+    
+    # 激活夹爪时的状态值
+    gripper_activate_state: 1
+    
+    # 停用夹爪时的状态值
+    gripper_deactivate_state: 0
+    
+    # 激活/停用后的等待时间 (秒)
+    gripper_activation_delay: 1.0
+    
+    # ========== 控制器配置 ==========
+    # 正常运动规划使用的轨迹控制器
+    trajectory_controller: "scaled_pos_joint_traj_controller"
+    
+    # FT反馈时使用的twist控制器
+    twist_controller: "twist_controller"
+    
+    # ========== 预动作姿态 ==========
+    # 是否在操作前先移动到预定义的姿态
+    use_pre_action_pose: false
+    
+    # ========== 感知校正偏移 ==========
+    # 这些偏移用于校正感知系统的检测误差
+    # X轴偏移 (米)
+    perception_offset_x: -0.01
+    
+    # Y轴偏移 (米)
+    perception_offset_y: -0.005
+    
+    # ========== 高级参数 ==========
+    # (这些参数通常不需要修改)
+    
+    # MoveIt规划超时 (秒)
+    # planning_time: 10.0
+    
+    # 规划尝试次数
+    # num_planning_attempts: 5
+    
+    # 速度缩放因子 (0.0-1.0)
+    # max_velocity_scaling_factor: 1.0
+    
+    # 加速度缩放因子 (0.0-1.0)
+    # max_acceleration_scaling_factor: 0.5
+    
+    # 使用的规划器
+    # planner_id: "RRTConnectkConfigDefault"
